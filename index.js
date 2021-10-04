@@ -3,12 +3,16 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+
 
 // Routes
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const projectRoute = require("./routes/projects");
 const categoryRoute = require("./routes/categories");
+const donorRoute = require("./routes/donor");
 
 // Upload images
 const multer = require("multer");
@@ -42,6 +46,7 @@ app.use("/edunate/auth" , authRoute);
 app.use("/edunate/user",userRoute );
 app.use("edunate/projects", projectRoute);
 app.use("/edunate/categories", categoryRoute);
+// app.use("edunate/donate", donorRoute);
 
 
 app.listen("5000", ()=>{
