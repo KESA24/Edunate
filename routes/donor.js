@@ -3,9 +3,9 @@ const router = require('express').Router();
 const request = require('request');
 const _ = require('lodash');
 const Donor = require('../models/Donor');
-const {initializePayment, verifyPayment} = require('./config/paystack')(request);
+const {initializePayment, verifyPayment} = require('../configurations/flutterwave/flutterwave')(request);
 
-// Make donation
+// Make donation using flutter
 app.post('/', (req, res) => {
     const form = _.pick(req.body,['amount','email','full_name']);
     form.metadata = {
@@ -46,5 +46,7 @@ app.get('/', (req,res) => {
     })
 });
 
+
+// Make donation using Reloadly
 
 module.exports = router

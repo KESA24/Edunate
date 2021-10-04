@@ -1,11 +1,8 @@
 const Flutterwave = require('flutterwave-node-v3');
 
-const flw = new Flutterwave('FLWPUBK_TEST-5bfc5f1c934a77a60db781344229e03b-X', 'FLWSECK_TEST-008b90f8aa80b94dfa401accef4c1487-X');
-
 
 const flutterwave = (request) => {
-    const flwSecretKey = 'FLWSECK_TEST-008b90f8aa80b94dfa401accef4c1487-X';
-
+    const flw = new Flutterwave('FLWPUBK_TEST-5bfc5f1c934a77a60db781344229e03b-X', 'FLWSECK_TEST-008b90f8aa80b94dfa401accef4c1487-X');
     const initializePayment = (form, mycallback) => {
 
  
@@ -13,7 +10,7 @@ const flutterwave = (request) => {
         const options = {
             url : 'https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay',
             headers : {
-                authorization: flwSecretKey,
+                authorization: flw,
                 'content-type': 'application/json',
                 'cache-control': 'no-cache',
                 
@@ -30,7 +27,7 @@ const flutterwave = (request) => {
         const options = {
             url : 'https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay'+encodeURIComponent(ref    ),
             headers : {
-                authorization:  flwSecretKey,
+                authorization:  flw,
                 'content-type': 'application/json',
                 'cache-control': 'no-cache'
            }

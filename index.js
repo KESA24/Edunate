@@ -46,7 +46,7 @@ app.use("/edunate/auth" , authRoute);
 app.use("/edunate/user",userRoute );
 app.use("edunate/projects", projectRoute);
 app.use("/edunate/categories", categoryRoute);
-// app.use("edunate/donate", donorRoute);
+app.use("edunate/donate", donorRoute);
 
 
 app.listen("5000", ()=>{
